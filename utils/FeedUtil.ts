@@ -2,7 +2,7 @@ import { Feed } from "feed";
 import { Article } from "../models/Article";
 
 function buildFeedBase(articles: Article[]) {
-  const baseUrl = "https://blog.ikeryo1182.com";
+  const baseUrl = process.env.BASE_URL ?? "";
   const feed = new Feed({
     title: "Nullale<T>",
     description: "JavaScript を趣味で触る技術ブログ",

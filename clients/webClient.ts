@@ -1,11 +1,9 @@
 import { Article } from "../models/Article";
 import { Contents } from "newt-client-js";
 
-const BASE_URL = "http://localhost:3000";
-
 export const webClient = {
   getArticles: async () => {
-    const response = await fetch(BASE_URL + "/api/article", {
+    const response = await fetch(process.env.BASE_URL + "/api/article", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +20,10 @@ export const webClient = {
   },
   getArticle: async (slug: string, _id?: string) => {
     const response = await fetch(
-      BASE_URL + "/api/article/" + slug + (_id ? "?_id=" + _id : ""),
+      process.env.BASE_URL +
+        "/api/article/" +
+        slug +
+        (_id ? "?_id=" + _id : ""),
       {
         method: "GET",
         headers: {
