@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+pre, code {
+  background-color: #1c1b19;
+}
+
+pre code {
+  color: white;
+}
