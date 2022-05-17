@@ -3,7 +3,6 @@ import { Article as ArticleType } from "../models/Article";
 import hljs from "highlight.js";
 import parse, {
   attributesToProps,
-  DOMNode,
   domToReact,
   Element,
   HTMLReactParserOptions,

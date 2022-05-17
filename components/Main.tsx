@@ -1,4 +1,4 @@
-import { Container, Text } from "@nextui-org/react";
+import { Container } from "@nextui-org/react";
 import { PropsWithChildren } from "react";
 
 type Props = {};

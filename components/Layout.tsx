@@ -3,8 +3,6 @@ import { Footer } from "./Footer";
 import { Main } from "./Main";
 import { PropsWithChildren } from "react";
 
-import { useTheme as useNextTheme } from "next-themes";
-import { useTheme, Switch } from "@nextui-org/react";
 import { Meta } from "../models/Meta";
 import Head from "next/head";
 
@@ -13,9 +11,6 @@ type Props = {
 };
 
 export function Layout(props: PropsWithChildren<Props>) {
-  // const { setTheme } = useNextTheme();
-  // const { isDark } = useTheme();
-
   return (
     <>
       <Head>
@@ -48,10 +43,6 @@ export function Layout(props: PropsWithChildren<Props>) {
         ï
       </Head>
       <Header></Header>
-      {/* <Switch
-        checked={isDark}
-        onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
-      /> */}
       <Main>{props.children}</Main>
       <Footer></Footer>
     </>
