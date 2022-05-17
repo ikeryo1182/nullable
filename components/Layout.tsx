@@ -28,19 +28,6 @@ export function Layout(props: PropsWithChildren<Props>) {
           content={props.meta.ogImage?.src}
           key="image"
         />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-121607703-2"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'UA-121607703-2');`,
-          }}
-        ></script>
-        ï
       </Head>
       <Header></Header>
       <Main>{props.children}</Main>
