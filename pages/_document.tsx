@@ -41,7 +41,7 @@ class MyDocument extends Document {
         ></script>
         <script
           dangerouslySetInnerHTML={{
-            __html: `  window.dataLayer = window.dataLayer || [];
+            __html: `window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                   gtag('config', 'UA-121607703-2');`,

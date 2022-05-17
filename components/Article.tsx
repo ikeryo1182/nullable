@@ -11,8 +11,7 @@ import parse, {
 import "highlight.js/styles/night-owl.css";
 import javascript from "highlight.js/lib/languages/javascript";
 import { useMemo } from "react";
-import { GrUpdate } from "react-icons/gr";
-import { IoMdCreate } from "react-icons/io";
+import { IoMdCreate, IoIosRefresh } from "react-icons/io";
 import { formatDateString } from "../utils/DateUtil";
 hljs.registerLanguage("javascript", javascript);
 
@@ -154,7 +153,7 @@ export function Article(props: Props) {
             fontWeight: "bold",
           }}
         >
-          <GrUpdate style={{ margin: "0 5px" }} />{" "}
+          <IoIosRefresh style={{ margin: "0 5px" }} />{" "}
           {formatDateString(props.article._sys.updatedAt)}
         </Text>
       </div>

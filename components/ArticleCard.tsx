@@ -1,8 +1,7 @@
 import { Card, Row, Text } from "@nextui-org/react";
 import { Article as ArticleType } from "../models/Article";
 import { formatDateString } from "../utils/DateUtil";
-import { GrUpdate } from "react-icons/gr";
-import { IoMdCreate } from "react-icons/io";
+import { IoMdCreate, IoIosRefresh } from "react-icons/io";
 
 type Props = {
   article: ArticleType;
@@ -45,7 +44,7 @@ export function ArticleCard(props: Props) {
             fontWeight: "bold",
           }}
         >
-          <GrUpdate style={{ margin: "0 5px" }} />{" "}
+          <IoIosRefresh style={{ margin: "0 5px" }} />{" "}
           {formatDateString(props.article._sys.updatedAt)}
         </Text>
       </Row>
