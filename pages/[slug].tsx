@@ -11,11 +11,13 @@ type Props = {
 };
 
 export default function ArticlePage(props: Props) {
-  const [mounted, setMounted] = useState(false);
+  const [isSSR, setIsSSR] = useState(true);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
 
-  if (!mounted || !props.article) return null;
+  if (isSSR || !props.article) return null;
 
   return (
     <Layout meta={props.article.meta}>

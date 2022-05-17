@@ -3,12 +3,21 @@ import { Layout } from "../components/Layout";
 import { ArticleCard } from "../components/ArticleCard";
 import { webClient } from "../clients/webClient";
 import { Article as ArticleType } from "../models/Article";
+import { useEffect, useState } from "react";
 
 type Props = {
   articles: ArticleType[];
 };
 
 function Home(props: Props) {
+  const [isSSR, setIsSSR] = useState(true);
+
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
+  if (isSSR) return null;
+
   return (
     <Layout
       meta={{
