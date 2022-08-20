@@ -125,20 +125,28 @@ export function Article(props: Props) {
   return (
     <Card
       style={{
-        padding: 10,
+        padding: 5,
         minWidth: "200px",
-        maxWidth: "1000px",
+        maxWidth: "780px",
         minHeight: "200px",
       }}
     >
-      <Text h1>{props.article.title}</Text>
+      <Text
+        h3
+        css={{
+          display: "flex",
+          alignItems: "center",
+          margin: "0 0 10px 0",
+        }}
+      >
+        {props.article.title}
+      </Text>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <Text
           css={{
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
-            fontWeight: "bold",
           }}
         >
           <IoMdCreate style={{ margin: "0 5px" }} />{" "}
@@ -150,7 +158,6 @@ export function Article(props: Props) {
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
-            fontWeight: "bold",
           }}
         >
           <IoIosRefresh style={{ margin: "0 5px" }} />{" "}

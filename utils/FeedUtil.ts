@@ -8,7 +8,7 @@ function buildFeedBase(articles: Article[]) {
     description: "JavaScript を趣味で触る技術ブログ",
     id: baseUrl,
     link: baseUrl,
-    image: `${baseUrl}/favicon.png`,
+    image: `${baseUrl}/favicon.ico`,
     language: "ja",
     feedLinks: {
       rss2: `${baseUrl}/rss/rss.xml`,

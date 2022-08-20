@@ -30,7 +30,7 @@ export function Layout(props: PropsWithChildren<Props>) {
           content={props.meta.ogImage?.src}
           key="image"
         />
-        <link rel="icon" href={`${baseUrl}/favicon.png`} />
+        <link rel="icon" href={`${baseUrl}/favicon.ico`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@neer_chan" />
       </Head>

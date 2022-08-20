@@ -17,19 +17,26 @@ export function ArticleCard(props: Props) {
         width: "100%",
         minWidth: "200px",
         maxWidth: "600px",
-        minHeight: "120px",
+        minHeight: "80px",
       }}
     >
       <Row justify="space-between" align="flex-end">
-        <Text h3>{props.article.title}</Text>
+        <Text
+          css={{
+            fontSize: "18px",
+            fontWeight: "bold",
+          }}
+        >
+          {props.article.title}
+        </Text>
       </Row>
       <Row css={{ display: "flex", justifyContent: "flex-end" }}>
         <Text
           css={{
+            fontSize: "14px",
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
-            fontWeight: "bold",
           }}
         >
           <IoMdCreate style={{ margin: "0 5px" }} />{" "}
@@ -38,10 +45,10 @@ export function ArticleCard(props: Props) {
         {""}
         <Text
           css={{
+            fontSize: "14px",
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
-            fontWeight: "bold",
           }}
         >
           <IoIosRefresh style={{ margin: "0 5px" }} />{" "}
