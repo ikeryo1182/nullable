@@ -11,6 +11,8 @@ type Props = {
 };
 
 export function Layout(props: PropsWithChildren<Props>) {
+  const baseUrl = process.env.BASE_URL ?? "";
+
   return (
     <>
       <Head>
@@ -28,6 +30,9 @@ export function Layout(props: PropsWithChildren<Props>) {
           content={props.meta.ogImage?.src}
           key="image"
         />
+        <link rel="icon" href={`${baseUrl}/favicon.png`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@neer_chan" />
       </Head>
       <Header></Header>
       <Main>{props.children}</Main>
