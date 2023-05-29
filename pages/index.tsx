@@ -35,7 +35,7 @@ function Home(props: Props) {
       >
         {props.articles.map((a, i) => (
           <Link key={i} href={`/${a.slug}`} css={{ width: "100%" }}>
-            <Row justify="center" align="center" css={{ margin: "10px 0px" }}>
+            <Row justify="center" align="center" css={{ margin: "5px 0px" }}>
               <ArticleCard article={a} />
             </Row>
           </Link>

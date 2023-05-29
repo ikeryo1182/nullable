@@ -1,4 +1,4 @@
-import { Card, Text } from "@nextui-org/react";
+import { Card, Code, Container, Link, Text } from "@nextui-org/react";
 import { Article as ArticleType } from "../models/Article";
 import hljs from "highlight.js";
 import parse, {
@@ -40,7 +40,11 @@ const options: HTMLReactParserOptions = {
         const data = node.data as string;
         const value = hljs.highlightAuto(data).value;
 
-        return <code {...props}>{domToReact(htmlToDOM(value), options)}</code>;
+        return (
+          <Code {...props} css={{ fontSize: 12 }}>
+            {domToReact(htmlToDOM(value), options)}
+          </Code>
+        );
       }
 
       if (
@@ -50,14 +54,14 @@ const options: HTMLReactParserOptions = {
         domNode.name === "code"
       ) {
         return (
-          <code
+          <Code
             {...{
               ...props,
               style: { backgroundColor: "#e8e8e8", color: "#121212" },
             }}
           >
             {domToReact(domNode.children, options)}
-          </code>
+          </Code>
         );
       }
 
@@ -66,9 +70,8 @@ const options: HTMLReactParserOptions = {
           <Text
             h2
             css={{
-              fontSize: 28,
-              borderBottom: "1px gray solid",
-              padding: "10px 0",
+              fontSize: 24,
+              padding: "10px 0 5px 0",
             }}
             {...props}
           >
@@ -82,9 +85,9 @@ const options: HTMLReactParserOptions = {
           <Text
             h3
             css={{
-              fontSize: 24,
-              borderBottom: "1px gray dashed",
-              padding: "10px 0",
+              fontSize: 20,
+              fontWeight: "normal",
+              padding: "10px 0 5px 0",
             }}
             {...props}
           >
@@ -95,7 +98,7 @@ const options: HTMLReactParserOptions = {
 
       if (domNode.attribs && domNode.name === "h4") {
         return (
-          <Text h4 css={{ fontSize: 20, padding: "10px 0" }} {...props}>
+          <Text h4 css={{ fontSize: 16, padding: "10px 0" }} {...props}>
             {domToReact(domNode.children, options)}
           </Text>
         );
@@ -103,9 +106,28 @@ const options: HTMLReactParserOptions = {
 
       if (domNode.attribs && domNode.name === "h5") {
         return (
-          <Text h5 css={{ fontSize: 16 }} {...props}>
+          <Text h5 css={{ fontSize: 14 }} {...props}>
             * {domToReact(domNode.children, options)}
           </Text>
+        );
+      }
+
+      if (domNode.attribs && domNode.name === "p") {
+        return (
+          <Text
+            css={{ fontSize: 14, lineHeight: 1.8, padding: "5px 0" }}
+            {...props}
+          >
+            {domToReact(domNode.children, options)}
+          </Text>
+        );
+      }
+
+      if (domNode.attribs && domNode.name === "a") {
+        return (
+          <Link css={{ display: "inline" }} {...props}>
+            {domToReact(domNode.children, options)}
+          </Link>
         );
       }
 
@@ -123,16 +145,16 @@ export function Article(props: Props) {
   );
 
   return (
-    <Card
+    <Container
       style={{
-        padding: 5,
+        padding: 0,
         minWidth: "200px",
         maxWidth: "780px",
         minHeight: "200px",
       }}
     >
       <Text
-        h3
+        h4
         css={{
           display: "flex",
           alignItems: "center",
@@ -141,9 +163,16 @@ export function Article(props: Props) {
       >
         {props.article.title}
       </Text>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          margin: "0 0 14px 0",
+        }}
+      >
         <Text
           css={{
+            fontSize: "14px",
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
@@ -155,6 +184,7 @@ export function Article(props: Props) {
         {""}
         <Text
           css={{
+            fontSize: "14px",
             display: "flex",
             alignItems: "center",
             margin: "0 10px",
@@ -165,6 +195,6 @@ export function Article(props: Props) {
         </Text>
       </div>
       {html}
-    </Card>
+    </Container>
   );
 }

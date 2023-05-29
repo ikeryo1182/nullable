@@ -9,52 +9,34 @@ type Props = {
 
 export function ArticleCard(props: Props) {
   return (
-    <Card
+    <Row
       css={{
-        justifyContent: "space-between",
-        flexDirection: "column",
         display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
         width: "100%",
-        minWidth: "200px",
-        maxWidth: "600px",
-        minHeight: "80px",
       }}
     >
-      <Row justify="space-between" align="flex-end">
-        <Text
-          css={{
-            fontSize: "18px",
-            fontWeight: "bold",
-          }}
-        >
-          {props.article.title}
-        </Text>
-      </Row>
-      <Row css={{ display: "flex", justifyContent: "flex-end" }}>
-        <Text
-          css={{
-            fontSize: "14px",
-            display: "flex",
-            alignItems: "center",
-            margin: "0 10px",
-          }}
-        >
-          <IoMdCreate style={{ margin: "0 5px" }} />{" "}
-          {formatDateString(props.article.systemPublishedAt)}
-        </Text>
-        {""}
-        <Text
-          css={{
-            fontSize: "14px",
-            display: "flex",
-            alignItems: "center",
-            margin: "0 10px",
-          }}
-        >
-          <IoIosRefresh style={{ margin: "0 5px" }} />{" "}
-          {formatDateString(props.article._sys.updatedAt)}
-        </Text>
-      </Row>
-    </Card>
+      <Text
+        css={{
+          fontSize: "16px",
+          fontWeight: "bold",
+        }}
+      >
+        {props.article.title}
+      </Text>
+      <Text
+        css={{
+          fontSize: "12px",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          margin: "0 10px",
+          minWidth: "70px",
+        }}
+      >
+        {formatDateString(props.article.systemPublishedAt)}
+      </Text>
+    </Row>
   );
 }
